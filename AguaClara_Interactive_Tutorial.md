@@ -101,20 +101,43 @@ $$ D = \frac{k_BT}{6\pi\eta r} $$
 
 ```python
 from scipy.constants import Boltzmann as kB_sc # I've imported the unitless value for kB from SciPy
-
+import math as m
+from aide_design.play import*
 kB = kB_sc * u.joule / u.kelvin # I've given kB units for you in J/K; you can use the kB variable to give you Boltzmann's constant with units
 
 # Write your code here
 def stokesEinstein(T,r,u):
-  T
+  T.to_base_units()
+  r.to_base_units()
+  D = (kB*T)/(6*m.pi*u*r)
+  return D
 
+
+answer = stokesEinstein(273 * u.kelvin, 3 * u.m, 1 * u.kg / (u.m * u.s))
+print(answer)
 
 ```
 
 6. You have a pipe with a radius of 0.2 m with water flowing in it at 2 m<sup>3</sup>/s. You want to see how the Reynolds Number changes as viscosity changes due to a change in temperature from 0 to 200<sup>o</sup>C. Create a plot of Reynolds Number against Temperature in Kelvin to show a relationship. Make sure your plot has a title, labeled axes, and axes grid. You can use functions from `physchem` like `pc.re_pipe` and `pc.viscosity_kinematic`. *(Hint: Make an array of temperatures to input into the `pc.viscosity_kinematic` function)*. Make sure to save you plot to your images folder in your personal repository, and display it below using `plt.show()` and a relative file path to the image.
 
 <!--- Fill you answer here. --->
+```python
+from aide_design.play import*
+T = list(range(200))
+T_kelvin = T * u.celsius
+T_kelvin.to(u.kelvin)
 
+Re = pc.re_pipe(2 * u.m **3 / u.s, 0.2 * u.m, pc.viscosity_kinematic(T_kelvin))
+
+plt.plot(T,Re)
+plt.title('Reynolds Number as a function of Temperature')
+plt.xlabel('Temperature in Celcius')
+plt.ylabel('Reynolds Number')
+plt.savefig('/Users/rabbmari/Documents/github/Personal/ReynoldsNumber')
+plt.show()
+
+
+```
 
 # GitHub Basics
 Congratulations! You've completed this interactive tutorial. Now all you need to do is save your work and put it on your personal repository. Toggle the Git Tab using `Cntrl + Shift + 9`.
