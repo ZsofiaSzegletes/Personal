@@ -27,7 +27,7 @@ start_recording()
 #
 # Hint: It's rice and beans. Yum, string beans.
 
-favorite_food = 'rice and beans' # Your answer here
+favorite_food = 'chocolate' # Your answer here
 
 print(favorite_food)
 
