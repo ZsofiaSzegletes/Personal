@@ -48,10 +48,10 @@ else:
 
 <!--- Fill you answer here. --->
 ```python
-x = 0
+y = 0
 for i in range(20):
-  x += + i
-print(x)
+  y += + i
+print(y)
 ```
 
 
