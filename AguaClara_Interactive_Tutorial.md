@@ -6,7 +6,7 @@
 3. For the remaining code, highlight it with your cursor and use `Hydrogen: Run`. What is the difference between the three?
 
 ```python
-from aide_design.play import*
+from aguaclara.play import*
 
 xArray = u.Quantity(np.arange(0.1, 0.5, 0.01), u.m)
 
@@ -102,7 +102,7 @@ $$ D = \frac{k_BT}{6\pi\eta r} $$
 ```python
 from scipy.constants import Boltzmann as kB_sc # I've imported the unitless value for kB from SciPy
 import math as m
-from aide_design.play import*
+from aguaclara.play import*
 kB = kB_sc * u.joule / u.kelvin # I've given kB units for you in J/K; you can use the kB variable to give you Boltzmann's constant with units
 
 # Write your code here
@@ -122,7 +122,7 @@ print(answer)
 
 <!--- Fill you answer here. --->
 ```python
-from aide_design.play import*
+from aguaclara.play import*
 T = list(range(200))
 T_kelvin = T * u.celsius
 T_kelvin.to(u.kelvin)
